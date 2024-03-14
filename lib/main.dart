@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const PageKamus(),
+      home: const SplassScreen(),
       debugShowCheckedModeBanner: false,
     );
   }
