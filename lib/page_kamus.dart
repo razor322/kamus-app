@@ -3,6 +3,8 @@ import 'dart:convert';
 
 import 'package:front_end/model/model_kamus.dart';
 import 'package:front_end/page_detail_kamus.dart';
+import 'package:front_end/page_login.dart';
+import 'package:front_end/utils/cekSession.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 
@@ -41,7 +43,7 @@ class _PageKamusState extends State<PageKamus> {
         isLoading = true;
       });
       http.Response res = await http
-          .get(Uri.parse('http://192.168.100.54/kamusDb/getKamus.php'));
+          .get(Uri.parse('http://10.127.220.59/kamusDb/getKamus.php'));
       var data = jsonDecode(res.body);
       setState(() {
         for (var i in data['data']) {
@@ -68,6 +70,22 @@ class _PageKamusState extends State<PageKamus> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.purple.shade200,
+        actions: [
+          IconButton(
+              onPressed: () {
+                setState(() {
+                  session.clearSession();
+                  Navigator.pushAndRemoveUntil(
+                      context,
+                      MaterialPageRoute(builder: (context) => PageLogin()),
+                      (route) => false);
+                });
+              },
+              icon: Icon(Icons.exit_to_app))
+        ],
+      ),
       body: Column(
         children: [
           Container(
