@@ -87,6 +87,11 @@ class _PageRegisterState extends State<PageRegister> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                Image.asset(
+                  "images/register.jpg",
+                  width: 300,
+                  height: 300,
+                ),
                 TextFormField(
                   controller: fullname,
                   validator: (val) {
@@ -178,8 +183,8 @@ class _PageRegisterState extends State<PageRegister> {
           },
           child: Text("anda sudah punya akun ? silahkan login"),
           shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(6),
-              side: BorderSide(width: 1, color: Colors.purple)),
+            borderRadius: BorderRadius.circular(6),
+          ),
         ),
       ),
     );

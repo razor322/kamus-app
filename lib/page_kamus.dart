@@ -43,7 +43,7 @@ class _PageKamusState extends State<PageKamus> {
         isLoading = true;
       });
       http.Response res = await http
-          .get(Uri.parse('http://10.127.220.59/kamusDb/getKamus.php'));
+          .get(Uri.parse('http://10.126.243.150/kamusDb/getKamus.php'));
       var data = jsonDecode(res.body);
       setState(() {
         for (var i in data['data']) {

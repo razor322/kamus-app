@@ -22,7 +22,7 @@ class _PageLoginState extends State<PageLogin> {
         isLoading = true;
       });
       http.Response res = await http.post(
-          Uri.parse('http://10.127.220.59/kamusDb/login.php'),
+          Uri.parse('http://10.126.243.150/kamusDb/login.php'),
           body: {"username": username.text, "password": pass.text});
       ModelLogin data = modelLoginFromJson(res.body);
 
@@ -58,14 +58,6 @@ class _PageLoginState extends State<PageLogin> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        backgroundColor: Colors.green,
-        title: Text(
-          "Login Page",
-          style: TextStyle(fontWeight: FontWeight.bold),
-        ),
-      ),
       body: Center(
         child: Form(
           key: keyForm,
@@ -74,6 +66,11 @@ class _PageLoginState extends State<PageLogin> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                Image.asset(
+                  "images/login.jpg",
+                  width: 250,
+                  height: 250,
+                ),
                 TextFormField(
                   controller: username,
                   validator: (val) {
@@ -114,7 +111,7 @@ class _PageLoginState extends State<PageLogin> {
                           content: Text("silahkan isi data terlebih dahulu")));
                     }
                   },
-                  color: Colors.purple.shade200,
+                  color: Colors.purple,
                   textColor: Colors.white,
                   height: 45,
                   child: const Text("login"),
@@ -135,8 +132,8 @@ class _PageLoginState extends State<PageLogin> {
           },
           child: Text("anda belum punya akun ? silahkan mendaftar"),
           shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(6),
-              side: BorderSide(width: 1, color: Colors.purple)),
+            borderRadius: BorderRadius.circular(6),
+          ),
         ),
       ),
     );
