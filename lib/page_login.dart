@@ -22,7 +22,7 @@ class _PageLoginState extends State<PageLogin> {
         isLoading = true;
       });
       http.Response res = await http.post(
-          Uri.parse('http://192.168.100.54/kamusDb/login.php'),
+          Uri.parse('http://10.127.220.59/kamusDb/login.php'),
           body: {"username": username.text, "password": pass.text});
       ModelLogin data = modelLoginFromJson(res.body);
 
@@ -80,6 +80,7 @@ class _PageLoginState extends State<PageLogin> {
                     return val!.isEmpty ? "Tidak boleh kosong" : null;
                   },
                   decoration: InputDecoration(
+                      labelText: "Username",
                       hintText: "Username",
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10))),
@@ -94,6 +95,7 @@ class _PageLoginState extends State<PageLogin> {
                   },
                   obscureText: true,
                   decoration: InputDecoration(
+                      labelText: "Password",
                       hintText: "Password",
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10))),

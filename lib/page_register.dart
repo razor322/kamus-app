@@ -27,7 +27,7 @@ class _PageRegisterState extends State<PageRegister> {
         isLoading = true;
       });
       http.Response res = await http
-          .post(Uri.parse('http://192.168.100.54/kamusDb/register.php'), body: {
+          .post(Uri.parse('http://10.127.220.59/kamusDb/register.php'), body: {
         "fullname": fullname.text,
         "username": username.text,
         "password": pass.text,
@@ -93,6 +93,7 @@ class _PageRegisterState extends State<PageRegister> {
                     return val!.isEmpty ? "Tidak boleh kosong" : null;
                   },
                   decoration: InputDecoration(
+                      labelText: "Fullname",
                       hintText: "Full Name",
                       border: OutlineInputBorder(
                           borderSide:
@@ -108,6 +109,7 @@ class _PageRegisterState extends State<PageRegister> {
                     return val!.isEmpty ? "Tidak boleh kosong" : null;
                   },
                   decoration: InputDecoration(
+                      labelText: "Username",
                       hintText: "Username",
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10))),
@@ -121,6 +123,7 @@ class _PageRegisterState extends State<PageRegister> {
                     return val!.isEmpty ? "Tidak boleh kosong" : null;
                   },
                   decoration: InputDecoration(
+                      labelText: "Email",
                       hintText: "Email",
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10))),
@@ -135,6 +138,7 @@ class _PageRegisterState extends State<PageRegister> {
                   },
                   obscureText: true,
                   decoration: InputDecoration(
+                      labelText: "Password",
                       hintText: "Password",
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10))),
