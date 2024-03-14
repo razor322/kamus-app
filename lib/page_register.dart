@@ -1,6 +1,7 @@
 // ignore_for_file: unnecessary_string_interpolations, prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:front_end/const.dart';
 import 'package:front_end/model/model_register.dart';
 import 'package:front_end/page_login.dart';
 import 'package:http/http.dart' as http;
@@ -26,8 +27,8 @@ class _PageRegisterState extends State<PageRegister> {
       setState(() {
         isLoading = true;
       });
-      http.Response res = await http
-          .post(Uri.parse('http://10.127.220.59/kamusDb/register.php'), body: {
+      http.Response res =
+          await http.post(Uri.parse('http://$url/kamusDb/register.php'), body: {
         "fullname": fullname.text,
         "username": username.text,
         "password": pass.text,
@@ -165,7 +166,7 @@ class _PageRegisterState extends State<PageRegister> {
                   color: Colors.purple,
                   textColor: Colors.white,
                   height: 45,
-                  child: const Text("Register"),
+                  child: const Text("Submit"),
                 )
               ],
             ),

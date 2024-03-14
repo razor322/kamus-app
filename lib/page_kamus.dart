@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 import 'dart:convert';
 
+import 'package:front_end/const.dart';
 import 'package:front_end/model/model_kamus.dart';
 import 'package:front_end/page_detail_kamus.dart';
 import 'package:front_end/page_login.dart';
@@ -42,8 +43,8 @@ class _PageKamusState extends State<PageKamus> {
       setState(() {
         isLoading = true;
       });
-      http.Response res = await http
-          .get(Uri.parse('http://10.126.243.150/kamusDb/getKamus.php'));
+      http.Response res =
+          await http.get(Uri.parse('http://$url/kamusDb/getKamus.php'));
       var data = jsonDecode(res.body);
       setState(() {
         for (var i in data['data']) {

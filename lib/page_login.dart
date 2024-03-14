@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:front_end/const.dart';
 import 'package:front_end/model/model_login.dart';
 import 'package:front_end/page_kamus.dart';
 import 'package:front_end/page_register.dart';
@@ -22,7 +23,7 @@ class _PageLoginState extends State<PageLogin> {
         isLoading = true;
       });
       http.Response res = await http.post(
-          Uri.parse('http://10.126.243.150/kamusDb/login.php'),
+          Uri.parse('http://$url/kamusDb/login.php'),
           body: {"username": username.text, "password": pass.text});
       ModelLogin data = modelLoginFromJson(res.body);
 
@@ -114,7 +115,7 @@ class _PageLoginState extends State<PageLogin> {
                   color: Colors.purple,
                   textColor: Colors.white,
                   height: 45,
-                  child: const Text("login"),
+                  child: const Text("Submit"),
                 )
               ],
             ),
